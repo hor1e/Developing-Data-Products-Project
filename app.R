@@ -5,23 +5,28 @@ library(ggplot2)
 ui <- shinyUI(fluidPage(
    
     # Application title
-    titlePanel("Plot Iris Data"),
+    titlePanel("Plotting Iris with Shiny Application"),
    
     # Sidebar
     sidebarLayout(
         sidebarPanel(
+            
+            # SelectBox to select X and Y
+            selectInput("select_X", label = "Choose X", 
+                        choices = colnames(iris)[1:4], 
+                        selected = colnames(iris)[1]),
       
-        # SelectBox to select X and Y
-        selectInput("select_X", label = "X", 
-                    choices = colnames(iris)[1:4], 
-                    selected = colnames(iris)[1]),
+            selectInput("select_Y", label = "Choose Y", 
+                        choices = colnames(iris)[1:4], 
+                        selected = colnames(iris)[1]),
+            
+            helpText("The graph will be automatically plotted when you choose X and Y."),
       
-        selectInput("select_Y", label = "Y", 
-                    choices = colnames(iris)[1:4], 
-                    selected = colnames(iris)[1]),
-      
-        # Checkbox to draw (or not) fitted line
-        checkboxInput("checkbox", label = "Fitting liner model", value = TRUE)
+            # Checkbox to draw (or not) fitted line
+            hr(),
+            checkboxInput("checkbox", label = "Fitting liner model", value = TRUE),
+            
+            helpText("The graph can be added fitted line by check box.")
       
         ),
     
