@@ -1,6 +1,5 @@
 library(shiny)
 library(ggplot2)
-library(Cairo)
 
 # Define UI for application that plot iris data
 ui <- shinyUI(fluidPage(
